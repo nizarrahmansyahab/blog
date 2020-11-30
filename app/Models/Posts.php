@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 
+
 class Posts extends Model
 {
 	 use SoftDeletes;

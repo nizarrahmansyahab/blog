@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
 
 
 
@@ -20,13 +21,11 @@ use App\Http\Controllers\UserController;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('blog');
-});
-
-/*Route::get('/isi_post', function(){
-	return view('blog.isi_post');
-});*/
+Route::get('/', [App\Http\Controllers\BlogController::class, 'index']);
+Route::get('/isi-post/{slug}', [App\Http\Controllers\BlogController::class, 'isi_blog'])->name('blog.isi');
+Route::get('/list-post', [App\Http\Controllers\BlogController::class, 'list_blog'])->name('blog.list');
+Route::get('/list-category/{category}', [App\Http\Controllers\BlogController::class, 'list_category'])->name('blog.category');
+Route::get('/cari', [App\Http\Controllers\BlogController::class, 'cari'])->name('blog.cari');
 
 
 
